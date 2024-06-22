@@ -6,12 +6,12 @@ const optionSchema = new mongoose.Schema({
         required: true,
     },
     isCorrect: {
-        type: boolean,
+        type: Boolean,
         required: true,
     },
 });
 
-const Option = mongoose.model("option", optionSchema);
+const Option = mongoose.model("Option", optionSchema);
 
 module.exports = {
     Option,
