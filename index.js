@@ -2,6 +2,7 @@ const express = require('express');
 const connectMongoDb = require('./connection');
 const userRoute = require('./routes/user')
 const homeRoute = require('./routes/home');
+const mcqRoute = require('./routes/mcq');
 const cookieParser = require('cookie-parser');
 
 connectMongoDb("mongodb://127.0.0.1:27017/quiz-app").then(console.log("Connected to MongoDb ...")).catch((err)=>console.log(err));
@@ -13,5 +14,6 @@ app.use(cookieParser());
 
 app.use('/', homeRoute);
 app.use('/users', userRoute);
+app.use('/mcq', mcqRoute);
 
 app.listen(PORT, () => console.log("listening on port 8080 ..."));

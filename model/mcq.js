@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 const {optionSchema} = require('./options')
 
 const mcqSchema = new mongoose.Schema({
-    id: {
-        type: String,
-        required: false,
-    },
     question: {
         type: String,
         required: true,
@@ -32,6 +28,6 @@ const mcqSchema = new mongoose.Schema({
 }, { timestamps: true }
 );
 
-const Mcq = mongoose.model("mcq", mcqSchema);
+const Mcq = mongoose.model("Mcq", mcqSchema);
 
 module.exports = Mcq;
