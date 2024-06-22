@@ -1,6 +1,5 @@
 const express = require('express');
 const connectMongoDb = require('./connection');
-const User = require('./model/user')
 const userRoute = require('./routes/user')
 const homeRoute = require('./routes/home');
 const cookieParser = require('cookie-parser');
