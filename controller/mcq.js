@@ -24,7 +24,7 @@ async function handleGetQuestion(req, res) {
         res.status(200).send(question);
         return;
     } catch (error) {
-        res.status(500)
+        res.status(500).send();
         console.log(`Error fetching question (id: ${id})`, error);
         return;
     }
@@ -51,8 +51,8 @@ async function handleCreateQuestion(req, res) {
         console.log(`created question. Id = ${mcq._id}`);
         return;
     } catch (error) {
-        res.status(500)
-        console.log("Error creating question")
+        res.status(500).send();
+        console.log("Error creating question");
         return;
     }
 }
@@ -75,11 +75,12 @@ async function handleUpdateQuestion(req, res) {
         const updatedMcq = await Mcq.findByIdAndUpdate(id, update, {
             new: true,
             usert: false,
+            runValidators: true,
         });
         res.status(201).send(updatedMcq);
         return;
     } catch (error) {
-        res.status(404).send("resource not found");
+        res.status(400).send("Please enter valid inputs");
         console.log("Update error: ",error);
         return;
     }
