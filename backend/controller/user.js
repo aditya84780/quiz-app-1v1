@@ -38,27 +38,36 @@ async function handleUserSignup(req, res) {
 async function handleUserLogin(req, res) {
     try {
         const {email, password} = req.body;
+        
         const user = await User.findOne({email: email});
 
         if(!user) {
-            res.status(401).send("incorrect email");
+            res.status(401).send();
             return;
         }
 
         const isValid = await bcrypt.compare(password, user.password);
 
         if(!isValid) {
-            res.status(401).send("incorrect password");
+            res.status(401).send();
             return;
         }
         const jwtUser = {
             username: user.username,
+            id: user._id,
         };
+
+        const payload = {
+            username: user.username,
+            email: user.email,
+            highscore: user.highscore,
+            admin: user.admin,
+        }
 
         res
         .status(200)
         .cookie("token", setUser(jwtUser))
-        .redirect('/')
+        .send(payload)
 
     } catch (error) {
         console.log("Error while logging in", error);
