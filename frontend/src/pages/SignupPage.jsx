@@ -1,3 +1,5 @@
+import SignupForm from '../components/Signup/SignupForm'
+
 function Signup() {
     return (
         <div>

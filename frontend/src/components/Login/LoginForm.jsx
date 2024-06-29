@@ -3,48 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import './LoginForm.css'
 import { FaUser } from "react-icons/fa";
 import { IoLockClosed } from "react-icons/io5";
-// import { useDispatch, useSelector} from 'react-redux'
-// import { login } from '../../redux/slice/authSlice'
-// import { useLoginMutation } from '../../redux/slice/authApiSlice';
-import instance from '../../app/api/apiSlice';
-// import Welcome from '../Welcome';
 import { useUser } from '../../UserContext';
 
 function LoginForm() {
 
-    // // const userRef = useRef()
-    // // const errRef = useRef()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errMsg, setErrMsg] = useState('')
     const navigate = useNavigate()
     const { user, login } = useUser();
-    // const { user } = useUser();
-
-    const [username, setUsername] = useState('')
 
     useEffect(() => {
         setErrMsg('');
     }, [email, password]);
-    
-
-    // useEffect(() => {
-    //     axios.post('http://localhost:8080')
-    //         .then((response) => {
-    //             setUsername(response.data.username)
-    //         })
-    // }, [username])
-
-    // const [login, {isLoading}] = useLoginMutation()
-    // const dispatch = useDispatch()
-
-    // // useEffect(() => {
-    // //     userRef.current.focus()
-    // // },[])
-
-    // useEffect(() => {
-    //     setErrMsg('')
-    // },[email, password])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -52,6 +23,7 @@ function LoginForm() {
             const response = await login({ email, password });
             if (response.status === 200 && user) {
                 console.log(user.username)
+                console.log(email)
                 navigate('/welcome');
             }
         } catch (error) {
@@ -65,7 +37,7 @@ function LoginForm() {
                 setErrMsg('Login failed');
             }
         }
-    };
+    }
 
     const handleEmailInput = (e) => setEmail(e.target.value)
     const handlePasswordInput  = (e) => setPassword(e.target.value)
@@ -91,8 +63,6 @@ function LoginForm() {
                 <div className="register-link">
                     <p>Don't have an account? <a href="/users/signup">Register</a></p>
                 </div>
-                {/* {status === 'loading' && <p>Loading...</p>}
-                {error && <p>{error}</p>} */}
             </form>
         </div>
     )
