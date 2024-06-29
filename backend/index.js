@@ -6,7 +6,7 @@ const userRoute = require('./routes/user')
 const homeRoute = require('./routes/home');
 const mcqRoute = require('./routes/mcq');
 const cors = require('cors')
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
 connectMongoDb("mongodb://127.0.0.1:27017/quiz-app").then(console.log("Connected to MongoDb ...")).catch((err)=>console.log(err));
 const PORT = 8080

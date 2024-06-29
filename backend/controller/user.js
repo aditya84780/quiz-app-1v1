@@ -27,7 +27,7 @@ async function handleUserSignup(req, res) {
             highscore,
         });
 
-        return res.status(201).redirect('/'); 
+        return res.status(201).send() 
 
     } catch (error) {
         console.log("error while signing up", error);

@@ -21,13 +21,16 @@ function SignupForm() {
         e.preventDefault();
         try {
             const response = await signup({email, username, password});
+            console.log(response)
             if(response.status === 201) {
                 navigate('/users/login')
             }
+            return response;
         } catch (error) {
-            if(response.status === 400) {
-                
-            }
+            // if(error.response.status === 400) {
+            //     console.log("Signup Error: ", error)
+            // }
+            console.log(error)
         }
     }
 
