@@ -6,6 +6,7 @@ import NoPage from './pages/NoPage';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Welcome from './components/Welcome';
+import McqListPage from './pages/McqListPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path = 'login' element = {<LoginPage />} />
             <Route path = 'signup' element = {<SignupPage />} />
           </Route>
+          <Route path = 'mcqlist' element = {<McqListPage />} />
           <Route path = '*' element = {<NoPage />} />
         </Routes>
       </BrowserRouter>

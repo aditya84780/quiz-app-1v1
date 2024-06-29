@@ -90,7 +90,7 @@ async function handleDeleteQuestion(req, res) {
     const {id} = req.body
     try {
         if(!id) {
-            res.status(404).send("resource not found");
+            res.status(400).send("resource not found");
             console.log("request does not contain an id");
             return;
         }
