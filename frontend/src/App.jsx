@@ -7,6 +7,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Welcome from './components/Welcome';
 import McqListPage from './pages/McqListPage';
+import UpdateMcqList from './pages/UpdateMcqListPage';
 
 function App() {
   return (
@@ -22,7 +23,10 @@ function App() {
             <Route path = 'login' element = {<LoginPage />} />
             <Route path = 'signup' element = {<SignupPage />} />
           </Route>
-          <Route path = 'mcqlist' element = {<McqListPage />} />
+          <Route path = 'mcq'>
+            <Route path = 'all' element = {<McqListPage />} />
+            <Route path = 'manage' element = {<UpdateMcqList />} />
+          </Route>
           <Route path = '*' element = {<NoPage />} />
         </Routes>
       </BrowserRouter>

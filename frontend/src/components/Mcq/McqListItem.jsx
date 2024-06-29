@@ -18,6 +18,7 @@ function McqListItem({ _id, question, options, difficulty, onDelete }) {
     }
     return(
         <div className="mcq-wrapper">
+            <p className='questionId'>Question Id = {_id}</p>
             <p className="question">{question}</p>
             <p className="difficulty"><strong>level: {difficulty}</strong></p>
             <div className="options">
