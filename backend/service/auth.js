@@ -1,16 +1,16 @@
 const jwt = require('jsonwebtoken')
 const secretKey = 'secretJwtKeyForDev';
 
-async function setUser(user) {
+function setUser(user) {
     try {
-        return jwt.sign(user, secretKey);
+        return jwt.sign(JSON.stringify(user), secretKey);
     } catch (error) {
         console.log(error);
         return null;
     }
 }
 
-async function getUser(token) {
+function getUser(token) {
     if(!token) return null;
     try {
         return jwt.verify(token, secretKey)

@@ -1,0 +1,27 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    font-size: 40px;
+    font-weight: 900;
+    color: #F4EEE0;
+    align-items: center;
+    margin: 0;
+    height: 50px;
+    width: 100%;
+    /* border: solid; */
+}
+
+.nav-menu ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    font-size: 20px;
+    width: 200px;
+}
+
+.nav-menu ul a{
+    color: #F4EEE0;
+    font-weight: 100;
+}
